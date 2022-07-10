@@ -1,0 +1,34 @@
+{
+  "name": "@awscqrs/core",
+  "version": "0.0.1",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "lint": "eslint __tests__ __mocks__ src --max-warnings=0",
+    "lint:fix": "eslint __tests__ __mocks__ src --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "updateDependencies": "npx npm-check-updates -u"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
+    "@types/jest": "^28.1.3",
+    "@types/luxon": "^2.3.2",
+    "@types/node": "^18.0.0",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "esbuild": "^0.14.47",
+    "eslint": "^8.18.0",
+    "eslint-plugin-import": "^2.26.0",
+    "jest": "^28.1.2",
+    "ts-jest": "^28.0.5",
+    "ts-node": "^10.8.1",
+    "typescript": "~4.7.4"
+  },
+  "dependencies": {
+    "ajv": "^8.11.0",
+    "luxon": "^2.4.0",
+    "uuid": "^8.3.2"
+  }
+}

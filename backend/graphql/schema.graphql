@@ -1,0 +1,22 @@
+type Note @aws_iam @aws_cognito_user_pools {
+  id: ID!
+  name: String!
+  completed: Boolean!
+}
+
+type Query @aws_cognito_user_pools {
+  getNoteById(noteId: String!): Note
+  listNotes: [Note]
+}
+
+type Mutation @aws_iam {
+  createNote(id: ID!, name: String!, completed: Boolean!): Note
+  updateNote(id: ID!, name: String!, completed: Boolean!): Note
+  deleteNote(noteId: String!): String
+}
+
+type Subscription @aws_cognito_user_pools {
+  onCreateNote: Note @aws_subscribe(mutations: ["createNote"])
+  onDeleteNote: String @aws_subscribe(mutations: ["deleteNote"])
+  onUpdateNote: Note @aws_subscribe(mutations: ["updateNote"])
+}

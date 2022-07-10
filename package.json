@@ -1,0 +1,17 @@
+{
+  "name": "awscqrs",
+  "private": true,
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "test": "npm test --workspaces --if-present -- --silent --passWithNoTests",
+    "lint": "npm run lint --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "updateDependencies": "npm run updateDependencies --workspaces",
+    "format": "npx prettier --write ."
+  },
+  "workspaces": [
+    "core",
+    "backend"
+  ]
+}

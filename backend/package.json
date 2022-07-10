@@ -1,0 +1,46 @@
+{
+  "name": "@awscqrs/backend",
+  "version": "0.0.1",
+  "bin": {
+    "backend": "bin/backend.js"
+  },
+  "private": true,
+  "scripts": {
+    "build": "tsc --build --clean",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk",
+    "lint": "eslint lib/**/*.ts src/**/*.ts test/**/*.ts --ext .ts",
+    "lint:fix": "eslint lib/**/*.ts src/**/*.ts test/**/*.ts --ext .ts --fix",
+    "updateDependencies": "npx npm-check-updates -u"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.101",
+    "@types/jest": "^28.1.4",
+    "@types/node": "18.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "aws-cdk": "2.31.1",
+    "eslint": "^8.18.0",
+    "eslint-plugin-import": "^2.26.0",
+    "jest": "^28.1.2",
+    "ts-jest": "^28.0.5",
+    "ts-node": "^10.8.2",
+    "typescript": "~4.7.4"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-apigatewayv2-alpha": "^2.31.1-alpha.0",
+    "@aws-cdk/aws-apigatewayv2-authorizers-alpha": "^2.31.1-alpha.0",
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "^2.31.1-alpha.0",
+    "@aws-cdk/aws-appsync-alpha": "^2.31.1-alpha.0",
+    "@awscqrs/core": "^0.0.1",
+    "aws-appsync": "^4.1.7",
+    "aws-cdk-lib": "2.31.1",
+    "aws-lambda": "^1.0.7",
+    "aws-sdk": "^2.1171.0",
+    "constructs": "^10.1.43",
+    "cross-fetch": "^3.1.5",
+    "graphql-tag": "^2.12.6",
+    "source-map-support": "^0.5.21"
+  }
+}

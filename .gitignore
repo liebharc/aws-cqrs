@@ -1,0 +1,13 @@
+aws-exports.json
+__pycache__
+*.d.ts
+node_modules
+
+# Public/private key pairs
+*.pem
+*.pub
+
+# Java heap dumps
+*.hprof
+
+.idea

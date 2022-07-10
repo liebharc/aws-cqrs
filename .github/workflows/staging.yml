@@ -1,0 +1,51 @@
+name: Release Staging # staging/prod specific
+
+on:
+  push:
+    branches: [env/staging] # staging/prod specific
+  pull_request:
+    branches: [env/staging] # staging/prod specific
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.4.0
+
+      - name: Setup PIP
+        run: pip install -r requirements.txt
+
+      - name: Install workspaces
+        run: npm install
+
+      - name: Install cdk
+        run: npm install -g aws-cdk
+
+      - name: Test all
+        run: npm test
+
+      - name: Lint all
+        run: npm run lint
+
+      - name: cdk deploy
+        run: ./bin/cdkdeploy.py --staging # staging/prod specific
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: 'eu-central-1'
+
+      - name: Build AndroidBundle
+        working-directory: app/android
+        run: ./gradlew assembleRelease # staging/prod specific
+
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: AwsExports
+          path: app/aws-exports.json
